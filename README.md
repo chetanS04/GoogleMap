@@ -23,3 +23,6 @@ Make sure to add the Google Maps API key in your android/app/src/main/AndroidMan
 <meta-data
   android:name="com.google.android.geo.API_KEY"
   android:value="YOUR_API_KEY_HERE"/>
+
+
+After that run :- npm install react-native-map-link
