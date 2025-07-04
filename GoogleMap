@@ -1,0 +1,47 @@
+import React from 'react';
+import { StyleSheet, View } from 'react-native';
+import MapView, { PROVIDER_GOOGLE, Polygon } from 'react-native-maps';
+
+const GoogleMap = () => {
+  const boundaryCoordinates = [
+    { latitude: 28.6139, longitude: 77.2090 },
+    { latitude: 28.6200, longitude: 77.2150 },
+    { latitude: 28.6100, longitude: 77.2200 },
+    { latitude: 28.6050, longitude: 77.2100 },
+    { latitude: 28.6100, longitude: 77.2000 },
+    { latitude: 28.6139, longitude: 77.2090 },
+  ];
+
+  return (
+    <View style={styles.container}>
+      <MapView
+        provider={PROVIDER_GOOGLE}
+        style={styles.map}
+        initialRegion={{
+          latitude: 28.6139,
+          longitude: 77.2090,
+          latitudeDelta: 0.02,
+          longitudeDelta: 0.02,
+        }}
+      >
+        <Polygon
+          coordinates={boundaryCoordinates}
+          strokeColor="rgba(255,0,0,1)"
+          fillColor="rgba(255,0,0,0.3)"
+          strokeWidth={2}
+        />
+      </MapView>
+    </View>
+  );
+};
+
+const styles = StyleSheet.create({
+  container: {
+    flex: 1,
+  },
+  map: {
+    ...StyleSheet.absoluteFillObject,
+  },
+});
+
+export default GoogleMap;
